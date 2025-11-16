@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.cvbuilder.PreviewController">
+
+    <content>
+        <VBox fx:id="container"
+              spacing="12"
+              style="-fx-padding: 20;">
+        </VBox>
+    </content>
+
+</ScrollPane>

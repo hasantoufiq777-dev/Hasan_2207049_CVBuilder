@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.cvbuilder.CreateController">
+
+    <VBox spacing="12" style="-fx-padding: 20;">
+
+        <TextField fx:id="nameField" promptText="Full Name"/>
+        <TextField fx:id="emailField" promptText="Email"/>
+        <TextField fx:id="phoneField" promptText="Phone"/>
+        <TextField fx:id="addressField" promptText="Address"/>
+
+        <TextArea fx:id="eduArea" promptText="Education"/>
+        <TextArea fx:id="skillsArea" promptText="Skills"/>
+        <TextArea fx:id="workArea" promptText="Work Experience"/>
+        <TextArea fx:id="projectArea" promptText="Projects"/>
+
+        <Button text="Generate CV" onAction="#generateCV"/>
+
+    </VBox>
+</ScrollPane>

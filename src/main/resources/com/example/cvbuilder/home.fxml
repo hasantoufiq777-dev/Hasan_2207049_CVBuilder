@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.cvbuilder.HomeController">
+
+    <center>
+        <VBox alignment="CENTER" spacing="20">
+            <Label text="Welcome to CV Builder" style="-fx-font-size: 24px;" />
+            <Button text="Create New CV" onAction="#goToCreate"/>
+        </VBox>
+    </center>
+
+</BorderPane>
