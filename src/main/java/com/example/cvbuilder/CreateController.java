@@ -42,7 +42,9 @@ public class CreateController {
         if (ed.isEmpty()) return;
 
         education.add(ed);
-        educationBox.getChildren().add(new Label("• " + ed));
+        Label label = new Label("• " + ed);
+        label.setStyle("-fx-text-fill: white;");
+        educationBox.getChildren().add(label);
         educationInput.clear();
     }
 
@@ -52,7 +54,9 @@ public class CreateController {
         if (skill.isEmpty()) return;
 
         skills.add(skill);
-        skillsBox.getChildren().add(new Label("• " + skill));
+        Label label = new Label("• " + skill);
+        label.setStyle("-fx-text-fill: white;");
+        skillsBox.getChildren().add(label);
         skillInput.clear();
     }
 
@@ -63,7 +67,9 @@ public class CreateController {
         if (project.isEmpty()) return;
 
         projects.add(project);
-        projectsBox.getChildren().add(new Label("• " + project));
+        Label label = new Label("• " + project);
+        label.setStyle("-fx-text-fill: white;");
+        projectsBox.getChildren().add(label);
         projectInput.clear();
     }
 
@@ -74,7 +80,9 @@ public class CreateController {
         if (w.isEmpty()) return;
 
         work.add(w);
-        workBox.getChildren().add(new Label("• " + w));
+        Label label = new Label("• " + w);
+        label.setStyle("-fx-text-fill: white;");
+        workBox.getChildren().add(label);
         workInput.clear();
     }
 

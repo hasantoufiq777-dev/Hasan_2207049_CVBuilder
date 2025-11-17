@@ -5,14 +5,15 @@
 
 <ScrollPane xmlns:fx="http://javafx.com/fxml"
             fitToWidth="true"
-            fx:controller="com.example.cvbuilder.PreviewController">
+            fx:controller="com.example.cvbuilder.PreviewController"
+            style="-fx-background: #006994;">
 
     <content>
-        <StackPane alignment="CENTER">
+        <StackPane alignment="CENTER" style="-fx-background-color: #006994;">
             <VBox fx:id="container"
                   spacing="20"
                   maxWidth="550"
-                  style="-fx-padding: 30;">
+                  style="-fx-padding: 30; -fx-background-color: #006994;">
             </VBox>
         </StackPane>
     </content>

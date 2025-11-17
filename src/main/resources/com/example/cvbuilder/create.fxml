@@ -4,9 +4,10 @@
 <?import javafx.scene.control.*?>
 
 <ScrollPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.cvbuilder.CreateController">
+            fx:controller="com.example.cvbuilder.CreateController"
+            style="-fx-background: #006994;">
 
-    <VBox spacing="15" style="-fx-padding: 20;">
+    <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #006994;">
 
         <TextField fx:id="nameField" promptText="Full Name"/>
         <TextField fx:id="emailField" promptText="Email"/>
@@ -14,7 +15,7 @@
         <TextField fx:id="addressField" promptText="Address"/>
 
         <!-- EDUCATION -->
-        <Label text="Education"/>
+        <Label text="Education" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
         <HBox spacing="10">
             <TextField fx:id="educationInput" promptText="Add Education"/>
             <Button text="Add" onAction="#addEducation"/>
@@ -22,7 +23,7 @@
         <VBox fx:id="educationBox" spacing="5"/>
 
         <!-- SKILLS -->
-        <Label text="Skills"/>
+        <Label text="Skills" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
         <HBox spacing="10">
             <TextField fx:id="skillInput" promptText="Add Skill"/>
             <Button text="Add" onAction="#addSkill"/>
@@ -30,7 +31,7 @@
         <VBox fx:id="skillsBox" spacing="5"/>
 
         <!-- PROJECTS -->
-        <Label text="Projects"/>
+        <Label text="Projects" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
         <HBox spacing="10">
             <TextField fx:id="projectInput" promptText="Add Project"/>
             <Button text="Add" onAction="#addProject"/>
@@ -38,7 +39,7 @@
         <VBox fx:id="projectsBox" spacing="5"/>
 
         <!-- WORK EXPERIENCE -->
-        <Label text="Work Experience"/>
+        <Label text="Work Experience" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
         <HBox spacing="10">
             <TextField fx:id="workInput" promptText="Add Work Experience"/>
             <Button text="Add" onAction="#addWork"/>

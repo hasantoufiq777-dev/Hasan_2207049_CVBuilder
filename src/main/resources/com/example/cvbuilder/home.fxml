@@ -4,12 +4,16 @@
 <?import javafx.scene.control.*?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.cvbuilder.HomeController">
+            fx:controller="com.example.cvbuilder.HomeController"
+            style="-fx-background-color: #006994;">
 
     <center>
         <VBox alignment="CENTER" spacing="20">
-            <Label text="Welcome to CV Builder" style="-fx-font-size: 24px;" />
-            <Button text="Create New CV" onAction="#goToCreate"/>
+            <Label text="Welcome to CV Builder"
+                   style="-fx-font-size: 24px; -fx-text-fill: white;" />
+            <Button text="Create New CV"
+                    onAction="#goToCreate"
+                    style="-fx-font-size: 14px; -fx-padding: 10;"/>
         </VBox>
     </center>
 
