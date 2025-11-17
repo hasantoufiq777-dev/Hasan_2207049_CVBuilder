@@ -10,6 +10,7 @@ public class PreviewController {
     private VBox container;
 
     public void setData(CVModel cv) {
+
         container.getChildren().clear();
 
         container.getChildren().addAll(

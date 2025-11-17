@@ -1,28 +1,99 @@
 package com.example.cvbuilder;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreateController {
 
     public TextField nameField, emailField, phoneField, addressField;
-    public TextArea eduArea, skillsArea, workArea, projectArea;
 
+    // INPUT FIELDS
+    @FXML private TextField skillInput;
+    @FXML private TextField projectInput;
+    @FXML private TextField educationInput;
+    @FXML private TextField workInput;
+
+    // DISPLAY BOXES
+    @FXML private VBox skillsBox;
+    @FXML private VBox projectsBox;
+    @FXML private VBox educationBox;
+    @FXML private VBox workBox;
+
+    // LISTS
+    private final List<String> skills = new ArrayList<>();
+    private final List<String> projects = new ArrayList<>();
+    private final List<String> education = new ArrayList<>();
+    private final List<String> work = new ArrayList<>();
+
+
+    // -------------------- ADD EDUCATION --------------------
+    @FXML
+    public void addEducation(ActionEvent e) {
+        String ed = educationInput.getText().trim();
+        if (ed.isEmpty()) return;
+
+        education.add(ed);
+        educationBox.getChildren().add(new Label("• " + ed));
+        educationInput.clear();
+    }
+
+    // -------------------- ADD SKILL --------------------
+    @FXML
+    public void addSkill(ActionEvent e) {
+        String skill = skillInput.getText().trim();
+        if (skill.isEmpty()) return;
+
+        skills.add(skill);
+        skillsBox.getChildren().add(new Label("• " + skill));
+        skillInput.clear();
+    }
+
+    // -------------------- ADD PROJECT --------------------
+    @FXML
+    public void addProject(ActionEvent e) {
+        String project = projectInput.getText().trim();
+        if (project.isEmpty()) return;
+
+        projects.add(project);
+        projectsBox.getChildren().add(new Label("• " + project));
+        projectInput.clear();
+    }
+
+    // -------------------- ADD WORK EXPERIENCE --------------------
+    @FXML
+    public void addWork(ActionEvent e) {
+        String w = workInput.getText().trim();
+        if (w.isEmpty()) return;
+
+        work.add(w);
+        workBox.getChildren().add(new Label("• " + w));
+        workInput.clear();
+    }
+
+    // -------------------- GENERATE CV --------------------
+    @FXML
     public void generateCV(ActionEvent e) throws Exception {
+
         CVModel data = new CVModel(
                 nameField.getText(),
                 emailField.getText(),
                 phoneField.getText(),
                 addressField.getText(),
-                eduArea.getText(),
-                skillsArea.getText(),
-                workArea.getText(),
-                projectArea.getText()
+
+                String.join("\n", education),   // EDUCATION FIRST
+                String.join("\n", skills),      // SKILLS SECOND
+                String.join("\n", work),        // WORK LAST
+                String.join("\n", projects)     // PROJECTS THIRD
         );
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("preview.fxml"));

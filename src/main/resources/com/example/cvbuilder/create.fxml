@@ -6,19 +6,49 @@
 <ScrollPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.cvbuilder.CreateController">
 
-    <VBox spacing="12" style="-fx-padding: 20;">
+    <VBox spacing="15" style="-fx-padding: 20;">
 
         <TextField fx:id="nameField" promptText="Full Name"/>
         <TextField fx:id="emailField" promptText="Email"/>
         <TextField fx:id="phoneField" promptText="Phone"/>
         <TextField fx:id="addressField" promptText="Address"/>
 
-        <TextArea fx:id="eduArea" promptText="Education"/>
-        <TextArea fx:id="skillsArea" promptText="Skills"/>
-        <TextArea fx:id="workArea" promptText="Work Experience"/>
-        <TextArea fx:id="projectArea" promptText="Projects"/>
+        <!-- EDUCATION -->
+        <Label text="Education"/>
+        <HBox spacing="10">
+            <TextField fx:id="educationInput" promptText="Add Education"/>
+            <Button text="Add" onAction="#addEducation"/>
+        </HBox>
+        <VBox fx:id="educationBox" spacing="5"/>
 
-        <Button text="Generate CV" onAction="#generateCV"/>
+        <!-- SKILLS -->
+        <Label text="Skills"/>
+        <HBox spacing="10">
+            <TextField fx:id="skillInput" promptText="Add Skill"/>
+            <Button text="Add" onAction="#addSkill"/>
+        </HBox>
+        <VBox fx:id="skillsBox" spacing="5"/>
+
+        <!-- PROJECTS -->
+        <Label text="Projects"/>
+        <HBox spacing="10">
+            <TextField fx:id="projectInput" promptText="Add Project"/>
+            <Button text="Add" onAction="#addProject"/>
+        </HBox>
+        <VBox fx:id="projectsBox" spacing="5"/>
+
+        <!-- WORK EXPERIENCE -->
+        <Label text="Work Experience"/>
+        <HBox spacing="10">
+            <TextField fx:id="workInput" promptText="Add Work Experience"/>
+            <Button text="Add" onAction="#addWork"/>
+        </HBox>
+        <VBox fx:id="workBox" spacing="5"/>
+
+        <Button text="Generate CV"
+                style="-fx-font-size: 16px; -fx-padding: 10;"
+                onAction="#generateCV"/>
 
     </VBox>
+
 </ScrollPane>

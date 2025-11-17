@@ -4,13 +4,17 @@
 <?import javafx.scene.control.*?>
 
 <ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fitToWidth="true"
             fx:controller="com.example.cvbuilder.PreviewController">
 
     <content>
-        <VBox fx:id="container"
-              spacing="12"
-              style="-fx-padding: 20;">
-        </VBox>
+        <StackPane alignment="CENTER">
+            <VBox fx:id="container"
+                  spacing="20"
+                  maxWidth="550"
+                  style="-fx-padding: 30;">
+            </VBox>
+        </StackPane>
     </content>
 
 </ScrollPane>
