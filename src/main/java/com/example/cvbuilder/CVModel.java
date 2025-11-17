@@ -1,7 +1,16 @@
 package com.example.cvbuilder;
 
 public class CVModel {
-    private String name, email, phone, address, education, skills, work, projects;
+
+    private String name = "", email = "", phone = "", address = "";
+    private StringBuilder education = new StringBuilder();
+    private StringBuilder skills = new StringBuilder();
+    private StringBuilder work = new StringBuilder();
+    private StringBuilder projects = new StringBuilder();
+
+
+    public CVModel() {}
+
 
     public CVModel(String name, String email, String phone, String address,
                    String education, String skills, String work, String projects) {
@@ -9,18 +18,48 @@ public class CVModel {
         this.email = email;
         this.phone = phone;
         this.address = address;
-        this.education = education;
-        this.skills = skills;
-        this.work = work;
-        this.projects = projects;
+
+        addEducation(education);
+        addSkills(skills);
+        addWork(work);
+        addProjects(projects);
     }
+
+
+    public void setName(String name) { this.name = name; }
+    public void setEmail(String email) { this.email = email; }
+    public void setPhone(String phone) { this.phone = phone; }
+    public void setAddress(String address) { this.address = address; }
+
+
+    public void addEducation(String edu) {
+        if (edu != null && !edu.trim().isEmpty())
+            education.append("- ").append(edu.trim()).append("\n");
+    }
+
+    public void addSkills(String skill) {
+        if (skill != null && !skill.trim().isEmpty())
+            skills.append("- ").append(skill.trim()).append("\n");
+    }
+
+    public void addWork(String w) {
+        if (w != null && !w.trim().isEmpty())
+            work.append("- ").append(w.trim()).append("\n");
+    }
+
+    public void addProjects(String p) {
+        if (p != null && !p.trim().isEmpty())
+            projects.append("- ").append(p.trim()).append("\n");
+    }
+
 
     public String getName() { return name; }
     public String getEmail() { return email; }
     public String getPhone() { return phone; }
     public String getAddress() { return address; }
-    public String getEducation() { return education; }
-    public String getSkills() { return skills; }
-    public String getWork() { return work; }
-    public String getProjects() { return projects; }
+
+    public String getEducation() { return education.toString(); }
+    public String getSkills() { return skills.toString(); }
+    public String getWork() { return work.toString(); }
+    public String getProjects() { return projects.toString(); }
 }
