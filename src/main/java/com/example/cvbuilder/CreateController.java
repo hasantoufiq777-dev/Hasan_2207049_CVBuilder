@@ -17,26 +17,25 @@ public class CreateController {
 
     public TextField nameField, emailField, phoneField, addressField;
 
-    // INPUT FIELDS
+
     @FXML private TextField skillInput;
     @FXML private TextField projectInput;
     @FXML private TextField educationInput;
     @FXML private TextField workInput;
 
-    // DISPLAY BOXES
+
     @FXML private VBox skillsBox;
     @FXML private VBox projectsBox;
     @FXML private VBox educationBox;
     @FXML private VBox workBox;
 
-    // LISTS
+
     private final List<String> skills = new ArrayList<>();
     private final List<String> projects = new ArrayList<>();
     private final List<String> education = new ArrayList<>();
     private final List<String> work = new ArrayList<>();
 
 
-    // -------------------- ADD EDUCATION --------------------
     @FXML
     public void addEducation(ActionEvent e) {
         String ed = educationInput.getText().trim();
@@ -47,7 +46,6 @@ public class CreateController {
         educationInput.clear();
     }
 
-    // -------------------- ADD SKILL --------------------
     @FXML
     public void addSkill(ActionEvent e) {
         String skill = skillInput.getText().trim();
@@ -58,7 +56,7 @@ public class CreateController {
         skillInput.clear();
     }
 
-    // -------------------- ADD PROJECT --------------------
+
     @FXML
     public void addProject(ActionEvent e) {
         String project = projectInput.getText().trim();
@@ -69,7 +67,7 @@ public class CreateController {
         projectInput.clear();
     }
 
-    // -------------------- ADD WORK EXPERIENCE --------------------
+
     @FXML
     public void addWork(ActionEvent e) {
         String w = workInput.getText().trim();
@@ -80,7 +78,7 @@ public class CreateController {
         workInput.clear();
     }
 
-    // -------------------- GENERATE CV --------------------
+
     @FXML
     public void generateCV(ActionEvent e) throws Exception {
 
@@ -90,10 +88,10 @@ public class CreateController {
                 phoneField.getText(),
                 addressField.getText(),
 
-                String.join("\n", education),   // EDUCATION FIRST
-                String.join("\n", skills),      // SKILLS SECOND
-                String.join("\n", work),        // WORK LAST
-                String.join("\n", projects)     // PROJECTS THIRD
+                String.join("\n", education),
+                String.join("\n", skills),
+                String.join("\n", work),
+                String.join("\n", projects)
         );
 
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("preview.fxml"));

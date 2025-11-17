@@ -12,8 +12,6 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
-        // Link your CSS file
-      //  scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
 
         stage.setTitle("CV Builder");
         stage.setScene(scene);
