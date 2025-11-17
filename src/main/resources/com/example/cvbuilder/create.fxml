@@ -14,7 +14,7 @@
         <TextField fx:id="phoneField" promptText="Phone"/>
         <TextField fx:id="addressField" promptText="Address"/>
 
-        <!-- EDUCATION -->
+
         <Label text="Education" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
         <HBox spacing="10">
             <TextField fx:id="educationInput" promptText="Add Education"/>
@@ -22,7 +22,7 @@
         </HBox>
         <VBox fx:id="educationBox" spacing="5"/>
 
-        <!-- SKILLS -->
+
         <Label text="Skills" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
         <HBox spacing="10">
             <TextField fx:id="skillInput" promptText="Add Skill"/>
@@ -30,7 +30,7 @@
         </HBox>
         <VBox fx:id="skillsBox" spacing="5"/>
 
-        <!-- PROJECTS -->
+
         <Label text="Projects" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
         <HBox spacing="10">
             <TextField fx:id="projectInput" promptText="Add Project"/>
@@ -38,7 +38,7 @@
         </HBox>
         <VBox fx:id="projectsBox" spacing="5"/>
 
-        <!-- WORK EXPERIENCE -->
+
         <Label text="Work Experience" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
         <HBox spacing="10">
             <TextField fx:id="workInput" promptText="Add Work Experience"/>
