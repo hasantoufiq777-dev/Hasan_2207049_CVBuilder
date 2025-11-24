@@ -1,10 +1,12 @@
 package com.example.cvbuilder;
 
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -17,24 +19,20 @@ public class CreateController {
 
     public TextField nameField, emailField, phoneField, addressField;
 
-
     @FXML private TextField skillInput;
     @FXML private TextField projectInput;
     @FXML private TextField educationInput;
     @FXML private TextField workInput;
-
 
     @FXML private VBox skillsBox;
     @FXML private VBox projectsBox;
     @FXML private VBox educationBox;
     @FXML private VBox workBox;
 
-
     private final List<String> skills = new ArrayList<>();
     private final List<String> projects = new ArrayList<>();
     private final List<String> education = new ArrayList<>();
     private final List<String> work = new ArrayList<>();
-
 
     @FXML
     public void addEducation(ActionEvent e) {
@@ -60,7 +58,6 @@ public class CreateController {
         skillInput.clear();
     }
 
-
     @FXML
     public void addProject(ActionEvent e) {
         String project = projectInput.getText().trim();
@@ -73,7 +70,6 @@ public class CreateController {
         projectInput.clear();
     }
 
-
     @FXML
     public void addWork(ActionEvent e) {
         String w = workInput.getText().trim();
@@ -85,7 +81,6 @@ public class CreateController {
         workBox.getChildren().add(label);
         workInput.clear();
     }
-
 
     @FXML
     public void generateCV(ActionEvent e) throws Exception {
@@ -102,6 +97,23 @@ public class CreateController {
                 String.join("\n", projects)
         );
 
+        // Save name + email to DB (async)
+        Task<Integer> task = DatabaseService.insertCVAsync(data);
+        task.setOnSucceeded(ev -> {
+            int generatedId = task.getValue();
+            if (generatedId > 0) {
+                // optional: inform user
+                System.out.println("Saved CV to DB with id = " + generatedId);
+            } else {
+                System.out.println("Save to DB failed.");
+            }
+        });
+        task.setOnFailed(ev -> {
+            System.err.println("DB insert failed: " + task.getException());
+        });
+        new Thread(task).start();
+
+        // navigate to preview (with full data)
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("preview.fxml"));
         Scene scene = new Scene(loader.load());
 

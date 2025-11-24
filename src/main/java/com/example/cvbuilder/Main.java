@@ -9,9 +9,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        // create DB table (if not exists)
+        DatabaseHelper.createTable();
+
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-
 
         stage.setTitle("CV Builder");
         stage.setScene(scene);

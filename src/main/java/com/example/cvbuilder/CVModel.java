@@ -8,9 +8,7 @@ public class CVModel {
     private StringBuilder work = new StringBuilder();
     private StringBuilder projects = new StringBuilder();
 
-
     public CVModel() {}
-
 
     public CVModel(String name, String email, String phone, String address,
                    String education, String skills, String work, String projects) {
@@ -25,12 +23,10 @@ public class CVModel {
         addProjects(projects);
     }
 
-
     public void setName(String name) { this.name = name; }
     public void setEmail(String email) { this.email = email; }
     public void setPhone(String phone) { this.phone = phone; }
     public void setAddress(String address) { this.address = address; }
-
 
     public void addEducation(String edu) {
         if (edu != null && !edu.trim().isEmpty())
@@ -51,7 +47,6 @@ public class CVModel {
         if (p != null && !p.trim().isEmpty())
             projects.append("- ").append(p.trim()).append("\n");
     }
-
 
     public String getName() { return name; }
     public String getEmail() { return email; }
