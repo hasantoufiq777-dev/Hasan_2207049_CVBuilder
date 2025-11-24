@@ -10,7 +10,7 @@ public class Database {
 
     static {
         try {
-            // ensure SQLite JDBC driver is loaded (not strictly required with modern drivers)
+
             Class.forName("org.sqlite.JDBC");
         } catch (ClassNotFoundException ignored) {}
     }
