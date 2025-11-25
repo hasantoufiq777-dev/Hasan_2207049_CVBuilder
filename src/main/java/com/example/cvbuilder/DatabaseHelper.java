@@ -23,7 +23,7 @@ public class DatabaseHelper {
         }
     }
 
-    // Insert returns generated id (or -1 on failure)
+
     public static int insertCV(CVModel cv) {
         String sql = "INSERT INTO cv(name, email) VALUES (?, ?)";
 
@@ -45,7 +45,7 @@ public class DatabaseHelper {
         }
     }
 
-    // Update by id - only updates name + email
+
     public static boolean updateCV(int id, String name, String email) {
         String sql = "UPDATE cv SET name = ?, email = ? WHERE id = ?";
 
@@ -77,7 +77,7 @@ public class DatabaseHelper {
         }
     }
 
-    // Return list of CVModel with only name/email (other fields left empty)
+
     public static List<CVModel> getAllCVs() {
         List<CVModel> list = new ArrayList<>();
         String sql = "SELECT id, name, email FROM cv ORDER BY id DESC";
@@ -90,8 +90,7 @@ public class DatabaseHelper {
                 CVModel cv = new CVModel();
                 cv.setName(rs.getString("name"));
                 cv.setEmail(rs.getString("email"));
-                // We don't have the other fields in DB; keep them empty
-                // Optionally you can add a setter for id in CVModel if you need it
+
                 list.add(cv);
             }
         } catch (Exception e) {
