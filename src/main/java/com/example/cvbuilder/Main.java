@@ -9,7 +9,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        // create DB table (if not exists)
+
         DatabaseHelper.createTable();
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
