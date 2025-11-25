@@ -2,7 +2,7 @@ package com.example.cvbuilder;
 
 public class CVModel {
 
-    private int id;   // NEW — needed for update/delete
+    private int id;
     private String name = "";
     private String email = "";
     private String phone = "";
@@ -34,11 +34,19 @@ public class CVModel {
         addProjects(projects);
     }
 
-    // ---------- SETTERS ----------
+    public int getId() { return id; }
     public void setId(int id) { this.id = id; }
+
+    public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+
+    public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+
+    public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
+
+    public String getAddress() { return address; }
     public void setAddress(String address) { this.address = address; }
 
     public void addEducation(String edu) {
@@ -46,9 +54,9 @@ public class CVModel {
             education.append("- ").append(edu.trim()).append("\n");
     }
 
-    public void addSkills(String skill) {
-        if (skill != null && !skill.trim().isEmpty())
-            skills.append("- ").append(skill.trim()).append("\n");
+    public void addSkills(String s) {
+        if (s != null && !s.trim().isEmpty())
+            skills.append("- ").append(s.trim()).append("\n");
     }
 
     public void addWork(String w) {
@@ -60,13 +68,6 @@ public class CVModel {
         if (p != null && !p.trim().isEmpty())
             projects.append("- ").append(p.trim()).append("\n");
     }
-
-    // ---------- GETTERS ----------
-    public int getId() { return id; }
-    public String getName() { return name; }
-    public String getEmail() { return email; }
-    public String getPhone() { return phone; }
-    public String getAddress() { return address; }
 
     public String getEducation() { return education.toString(); }
     public String getSkills() { return skills.toString(); }
