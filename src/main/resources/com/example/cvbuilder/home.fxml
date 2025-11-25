@@ -8,12 +8,17 @@
             style="-fx-background-color: #006994;">
 
     <center>
-        <VBox alignment="CENTER" spacing="20">
+        <VBox alignment="CENTER" spacing="25">
             <Label text="Welcome to CV Builder"
-                   style="-fx-font-size: 24px; -fx-text-fill: white;" />
+                   style="-fx-font-size: 26px; -fx-text-fill: white;"/>
+
             <Button text="Create New CV"
                     onAction="#goToCreate"
-                    style="-fx-font-size: 14px; -fx-padding: 10;"/>
+                    style="-fx-font-size: 16px; -fx-padding: 12 20;"/>
+
+            <Button text="View Saved Records"
+                    onAction="#goToRecords"
+                    style="-fx-font-size: 16px; -fx-padding: 12 20;"/>
         </VBox>
     </center>
 

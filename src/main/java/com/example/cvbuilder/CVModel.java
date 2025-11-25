@@ -2,13 +2,24 @@ package com.example.cvbuilder;
 
 public class CVModel {
 
-    private String name = "", email = "", phone = "", address = "";
+    private int id;   // NEW — needed for update/delete
+    private String name = "";
+    private String email = "";
+    private String phone = "";
+    private String address = "";
+
     private StringBuilder education = new StringBuilder();
     private StringBuilder skills = new StringBuilder();
     private StringBuilder work = new StringBuilder();
     private StringBuilder projects = new StringBuilder();
 
     public CVModel() {}
+
+    public CVModel(int id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
 
     public CVModel(String name, String email, String phone, String address,
                    String education, String skills, String work, String projects) {
@@ -23,6 +34,8 @@ public class CVModel {
         addProjects(projects);
     }
 
+    // ---------- SETTERS ----------
+    public void setId(int id) { this.id = id; }
     public void setName(String name) { this.name = name; }
     public void setEmail(String email) { this.email = email; }
     public void setPhone(String phone) { this.phone = phone; }
@@ -48,6 +61,8 @@ public class CVModel {
             projects.append("- ").append(p.trim()).append("\n");
     }
 
+    // ---------- GETTERS ----------
+    public int getId() { return id; }
     public String getName() { return name; }
     public String getEmail() { return email; }
     public String getPhone() { return phone; }
