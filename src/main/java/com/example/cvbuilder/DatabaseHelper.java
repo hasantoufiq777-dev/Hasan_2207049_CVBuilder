@@ -7,13 +7,12 @@ import java.util.List;
 public class DatabaseHelper {
 
     public static void createTable() {
-        String sql = """
-                CREATE TABLE IF NOT EXISTS cv (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    name TEXT NOT NULL,
-                    email TEXT
-                );
-                """;
+        String sql =
+                "CREATE TABLE IF NOT EXISTS cv (" +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "name TEXT NOT NULL," +
+                        "email TEXT" +
+                        ");";
 
         try (Connection conn = Database.getConnection();
              Statement stmt = conn.createStatement()) {
@@ -23,7 +22,6 @@ public class DatabaseHelper {
         }
     }
 
-
     public static int insertCV(CVModel cv) {
         String sql = "INSERT INTO cv(name, email) VALUES (?, ?)";
 
@@ -32,19 +30,18 @@ public class DatabaseHelper {
 
             ps.setString(1, cv.getName());
             ps.setString(2, cv.getEmail());
-            int affected = ps.executeUpdate();
+            ps.executeUpdate();
 
-            if (affected == 0) return -1;
             try (ResultSet rs = ps.getGeneratedKeys()) {
                 if (rs.next()) return rs.getInt(1);
             }
             return -1;
+
         } catch (Exception e) {
             e.printStackTrace();
             return -1;
         }
     }
-
 
     public static boolean updateCV(int id, String name, String email) {
         String sql = "UPDATE cv SET name = ?, email = ? WHERE id = ?";
@@ -56,13 +53,13 @@ public class DatabaseHelper {
             ps.setString(2, email);
             ps.setInt(3, id);
             return ps.executeUpdate() > 0;
+
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    // Delete by id
     public static boolean deleteCV(int id) {
         String sql = "DELETE FROM cv WHERE id = ?";
 
@@ -71,12 +68,12 @@ public class DatabaseHelper {
 
             ps.setInt(1, id);
             return ps.executeUpdate() > 0;
+
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
-
 
     public static List<CVModel> getAllCVs() {
         List<CVModel> list = new ArrayList<>();
@@ -87,12 +84,12 @@ public class DatabaseHelper {
              ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                CVModel cv = new CVModel();
-                cv.setName(rs.getString("name"));
-                cv.setEmail(rs.getString("email"));
-
+                CVModel cv = new CVModel(rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("email"));
                 list.add(cv);
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
